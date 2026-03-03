@@ -14,11 +14,12 @@ initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY!, {
 
 interface Props {
   title: string;
+  description: string;
   quantity: number;
   price: number;
 }
 
-function CheckoutButton({title, quantity, price}: Props) {
+function CheckoutButton({title, description, quantity, price}: Props) {
   const [preferenceId, setPreferenceId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +29,7 @@ function CheckoutButton({title, quantity, price}: Props) {
     setError(null);
 
     try {
-      const id = await createPreference({title, quantity, price});
+      const id = await createPreference({title, description, quantity, price});
 
       setPreferenceId(id);
     } catch {
