@@ -1,4 +1,5 @@
 // src/app/payment/pending/page.tsx
+"use client";
 
 import {Suspense} from "react";
 import {useSearchParams} from "next/navigation";

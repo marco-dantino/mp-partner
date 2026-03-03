@@ -1,6 +1,7 @@
 // src/app/payment/success/page.tsx
 // Necesita 'use client' para leer los searchParams del navegador
 // src/app/payment/success/page.tsx
+"use client";
 
 import {Suspense} from "react";
 import {useSearchParams} from "next/navigation";
