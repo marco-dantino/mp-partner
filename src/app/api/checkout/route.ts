@@ -41,7 +41,13 @@ export async function POST(request: NextRequest) {
         // external_reference: tu propio ID de orden.
         // Te sirve para saber qué orden actualizar cuando llega el Webhook.
         // Puede ser el ID de tu base de datos.
-        external_reference: "orden_123",
+        external_reference: "dantinomarco2005@hotmail.com",
+        payment_methods: {
+          installments: 6, // ← máximo 6 cuotas
+          excluded_payment_methods: [
+            {id: "visa"}, // ← excluir Visa
+          ],
+        },
       },
     });
 
