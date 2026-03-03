@@ -1,10 +1,12 @@
 // src/app/payment/success/page.tsx
 // Necesita 'use client' para leer los searchParams del navegador
-"use client";
+// src/app/payment/success/page.tsx
 
+import {Suspense} from "react";
 import {useSearchParams} from "next/navigation";
 
-export default function PaymentSuccess() {
+// ── 1. Extraemos la lógica a un componente hijo ──────────────────
+function PaymentSuccessContent() {
   const searchParams = useSearchParams();
   const paymentId = searchParams.get("payment_id");
 
@@ -17,6 +19,17 @@ export default function PaymentSuccess() {
         Volver al inicio
       </a>
     </div>
+  );
+}
+
+// ── 2. El page exporta el componente envuelto en Suspense ────────
+export default function PaymentSuccess() {
+  return (
+    <Suspense
+      fallback={<div className="flex min-h-screen items-center justify-center">Cargando...</div>}
+    >
+      <PaymentSuccessContent />
+    </Suspense>
   );
 }
 
