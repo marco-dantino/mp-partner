@@ -10,12 +10,7 @@ export default function HomePage() {
       <p className="mb-6 text-2xl font-bold text-blue-700">$10</p>
 
       {/* CheckoutButton es client, pero puede vivir dentro de un Server Component */}
-      <CheckoutButton
-        description="Zapa Nike PARtner"
-        price={10}
-        quantity={1}
-        title="Zapatillas Nike Air Max"
-      />
+      <CheckoutButton price={10} quantity={1} title="Zapatillas Nike Air Max" />
     </div>
   );
 }

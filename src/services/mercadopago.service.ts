@@ -3,12 +3,10 @@
 
 export const createPreference = async ({
   title,
-  description,
   quantity,
   price,
 }: {
   title: string;
-  description: string;
   quantity: number;
   price: number;
 }) => {

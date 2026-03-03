@@ -7,7 +7,7 @@ import client from "@/lib/mercadopago";
 // Esta función maneja POST /api/checkout
 export async function POST(request: NextRequest) {
   // Leemos el body de la request (lo que mandó el frontend)
-  const {title, description, quantity, price} = await request.json();
+  const {title, quantity, price} = await request.json();
 
   try {
     const preference = new Preference(client);
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
           {
             id: "1",
             title,
-            description,
+            description: "Descripcion PARTner",
             category_id: "others",
             quantity,
             unit_price: price,
